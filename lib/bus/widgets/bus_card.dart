@@ -1,15 +1,26 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tesis_app/bus/models/bus.dart';
 import 'package:tesis_app/models/busInfo.dart';
 
 class BusCard extends StatefulWidget {
+  const BusCard(
+      {super.key,
+      required this.busInfo,
+      required this.companyName,
+      required this.routeName});
+
+  final BusModel busInfo;
+  final String companyName;
+  final String routeName;
+
   @override
   State<BusCard> createState() => _BusCardState();
 }
 
 class _BusCardState extends State<BusCard> {
-  BusInfo busInfo = BusInfo("H3LL0-THER3", "El Rápido", "42", 5, 10);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,23 +41,21 @@ class _BusCardState extends State<BusCard> {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    busInfo.plate,
-                  ),
+                  child: Text(widget.busInfo.plate),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Empresa: ${busInfo.companyName}"),
-                    Text("Distancia: ${busInfo.distanceFromUserInKm} km.")
+                    Text(
+                        "Empresa: ${utf8.decode(widget.companyName.runes.toList())}"),
+                    Text("Distancia: 10 km.")
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Ruta: ${busInfo.route}"),
-                    Text(
-                        "Tiempo de llegada: ${busInfo.estimatedTimeOfArrivalInMin} min."),
+                    Text("Ruta: ${widget.routeName}"),
+                    Text("Tiempo de llegada: ${15} min."),
                   ],
                 )
               ],
