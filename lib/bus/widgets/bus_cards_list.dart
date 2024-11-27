@@ -27,7 +27,7 @@ class _BusCardsListState extends State<BusCardsList> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.buses == null
+    return widget.companyName == null || widget.routeName == null
         ? const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             child: Text(

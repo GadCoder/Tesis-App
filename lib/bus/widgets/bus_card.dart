@@ -48,7 +48,8 @@ class _BusCardState extends State<BusCard> {
                   children: [
                     Text(
                         "Empresa: ${utf8.decode(widget.companyName.runes.toList())}"),
-                    Text("Distancia: 10 km.")
+                    Text(
+                        "Distancia: ${widget.busInfo.distanceFromUser.toStringAsFixed(2)} km.")
                   ],
                 ),
                 Row(

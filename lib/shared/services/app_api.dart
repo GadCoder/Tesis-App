@@ -1,30 +1,22 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 import '../../bus/models/bus.dart';
 import '../../bus_company/models/bus_company.dart';
 import '../../bus_route/models/bus_route.dart';
+import 'base_api.dart';
 
-class AppAPI {
+class AppAPI extends BaseAPI {
   static final AppAPI _instance = AppAPI._internal();
 
-  AppAPI._internal();
+  AppAPI._internal() : super(baseURL: "100.89.148.97:8001");
 
   factory AppAPI() {
     return _instance;
   }
 
-  static const String baseURL = "192.168.18.10:8000";
-
-  Future<http.Response> makeGetRequest(String endpointUrl) async {
-    var url = Uri.http(baseURL, endpointUrl);
-    final response = await http.get(url);
-    return response;
-  }
-
   Future<List<BusRouteModel>?> getBusesRoutes() async {
-    final response = await makeGetRequest("bus-route/get_all/");
+    final response = await super.makeGetRequest("bus-route/get_all/");
     if (response.statusCode != 200) {
       return null;
     }
