@@ -3,7 +3,7 @@ import 'package:tesis_app/bus/models/bus.dart';
 
 import 'package:tesis_app/bus/widgets/bus_card.dart';
 
-import '../services/bus.dart';
+import '../../shared/services/app_api.dart';
 
 class BusCardsList extends StatefulWidget {
   const BusCardsList(
@@ -23,15 +23,15 @@ class BusCardsList extends StatefulWidget {
 }
 
 class _BusCardsListState extends State<BusCardsList> {
-  final BusAPI api = BusAPI();
+  final AppAPI api = AppAPI();
 
   @override
   Widget build(BuildContext context) {
     return widget.buses == null
         ? const Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             child: Text(
-              "Selecciona una empresa y ruta de buses",
+              "Selecciona una empresa y ruta de buses en el menú lateral",
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
             ))

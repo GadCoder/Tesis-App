@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:tesis_app/bus_company/models/bus_company.dart';
-import 'package:tesis_app/bus_company/services/bus_company.dart';
 import 'package:tesis_app/bus_route/models/bus_route.dart';
+
+import '../../shared/services/app_api.dart';
 
 class BusCompanyPicker extends StatefulWidget {
   const BusCompanyPicker(
@@ -19,7 +20,7 @@ class BusCompanyPicker extends StatefulWidget {
 class _BusCompanyPickerState extends State<BusCompanyPicker> {
   List<BusCompanyModel>? companies;
   List<BusRouteModel>? routes;
-  final BusCompanyAPI api = BusCompanyAPI();
+  final AppAPI api = AppAPI();
   int? selectedCompanyId;
   int? selectedRouteId;
 

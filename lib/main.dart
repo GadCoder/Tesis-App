@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:tesis_app/bus/models/bus.dart';
-import 'package:tesis_app/bus/services/bus.dart';
 import 'package:tesis_app/bus/widgets/bus_cards_list.dart';
 import 'package:tesis_app/bus_company/models/bus_company.dart';
-import 'package:tesis_app/bus_company/screens/picker.dart';
 import 'package:tesis_app/bus_route/models/bus_route.dart';
 import 'package:tesis_app/map/widgets/map.dart';
-import 'package:tesis_app/bus/widgets/bus_cards_list.dart';
+import 'package:tesis_app/shared/services/app_api.dart';
 import 'package:tesis_app/shared/widgets/drawer.dart';
 
 void main() {
@@ -45,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   BusCompanyModel? busCompany;
   BusRouteModel? busRoute;
   List<BusModel>? buses;
-  BusAPI busApi = BusAPI();
+  AppAPI busApi = AppAPI();
 
   @override
   Widget build(BuildContext context) {
