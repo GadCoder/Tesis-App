@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tesis_app/bus/models/bus.dart';
-import 'package:tesis_app/models/busInfo.dart';
 
 class BusCard extends StatefulWidget {
   const BusCard(
@@ -32,11 +30,11 @@ class _BusCardState extends State<BusCard> {
                 color: Colors.black.withOpacity(0.15),
                 spreadRadius: 0,
                 blurRadius: 15,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               ),
             ]),
         child: Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Column(
               children: [
                 Align(
@@ -56,7 +54,7 @@ class _BusCardState extends State<BusCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Ruta: ${widget.routeName}"),
-                    Text("Tiempo de llegada: ${15} min."),
+                    const Text("Tiempo de llegada: ${15} min."),
                   ],
                 )
               ],

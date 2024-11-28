@@ -35,7 +35,7 @@ class _BusCompanyPickerState extends State<BusCompanyPicker> {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-            title: Text("Selector de empresa de transporte y ruta"),
+            title: const Text("Selector de empresa de transporte y ruta"),
             automaticallyImplyLeading: true),
         body: Center(
           child: companies == null

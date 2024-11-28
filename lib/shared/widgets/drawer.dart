@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tesis_app/bus_company/models/bus_company.dart';
 import 'package:tesis_app/bus_route/models/bus_route.dart';
-import 'package:tesis_app/main.dart';
 
 import '../../bus_company/screens/picker.dart';
 

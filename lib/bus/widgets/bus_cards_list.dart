@@ -61,7 +61,7 @@ class _BusCardsListState extends State<BusCardsList> {
         if (item != null) {
           return buildItemWidget(item);
         } else {
-          return SizedBox.shrink(); // Return an empty widget if 'item' is null
+          return const SizedBox.shrink(); // Return an empty widget if 'item' is null
         }
       },
     );

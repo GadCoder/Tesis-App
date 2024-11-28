@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             companyName: busCompany?.name,
             routeName: busRoute?.name),
         body: Stack(children: [
-          Map(),
+          Map(buses: buses ?? []),
           Positioned(
               top: 40,
               left: 20,
