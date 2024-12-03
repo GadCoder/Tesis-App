@@ -61,7 +61,8 @@ class _BusCardsListState extends State<BusCardsList> {
         if (item != null) {
           return buildItemWidget(item);
         } else {
-          return const SizedBox.shrink(); // Return an empty widget if 'item' is null
+          return const SizedBox
+              .shrink(); // Return an empty widget if 'item' is null
         }
       },
     );
@@ -70,15 +71,15 @@ class _BusCardsListState extends State<BusCardsList> {
   // Method to create a single widget from the object
   Widget buildItemWidget(BusModel bus) {
     return Column(children: [
-      const SizedBox(
-        width: 15,
-        height: 15,
-      ),
       BusCard(
         busInfo: bus,
         companyName: widget.companyName!,
         routeName: widget.routeName!,
-      )
+      ),
+      const SizedBox(
+        width: 15,
+        height: 15,
+      ),
     ]);
   }
 }

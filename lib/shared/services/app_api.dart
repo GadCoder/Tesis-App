@@ -9,7 +9,7 @@ import 'base_api.dart';
 class AppAPI extends BaseAPI {
   static final AppAPI _instance = AppAPI._internal();
 
-  AppAPI._internal() : super(baseURL: "100.89.148.97:8001");
+  AppAPI._internal() : super(baseURL: "100.93.192.51:8001");
 
   factory AppAPI() {
     return _instance;
@@ -17,6 +17,7 @@ class AppAPI extends BaseAPI {
 
   Future<List<BusRouteModel>?> getBusesRoutes() async {
     final response = await super.makeGetRequest("bus-route/get_all/");
+    print(response.statusCode);
     if (response.statusCode != 200) {
       return null;
     }
@@ -53,7 +54,6 @@ class AppAPI extends BaseAPI {
     const endpointUrl = "bus-route/get-buses-from-route";
     var url = Uri.http(baseURL, endpointUrl, queryParameters);
     final response = await http.get(url, headers: headers);
-    print("STATUS CODE -> ${response.statusCode}");
     if (response.statusCode != 200) {
       return null;
     }

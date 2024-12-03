@@ -8,7 +8,7 @@ import '../../bus/models/bus.dart';
 class BusLocationAPI extends BaseAPI {
   static final BusLocationAPI _instance = BusLocationAPI._internal();
 
-  BusLocationAPI._internal() : super(baseURL: "100.89.148.97:8002");
+  BusLocationAPI._internal() : super(baseURL: "100.93.192.51:8000");
 
   factory BusLocationAPI() {
     return _instance;
@@ -22,7 +22,7 @@ class BusLocationAPI extends BaseAPI {
       'latitude': userLatitude.toString(),
       'longitude': userLongitude.toString(),
       'delay_in_min': "1",
-      'max_distance_in_km': "5",
+      'max_distance_in_km': "10",
     };
     Map<String, String> headers = {
       'accept': 'application/json',
@@ -30,13 +30,10 @@ class BusLocationAPI extends BaseAPI {
     String endpointUrl = "bus-location/get-nearest-buses-from-user/";
     var url = Uri.http(baseURL, endpointUrl, queryParameters);
     final response = await http.get(url, headers: headers);
-    print("STATUS CODE -> ${response.statusCode}");
     if (response.statusCode != 200) {
       return null;
     }
     final responseBody = jsonDecode(response.body);
-    print(responseBody);
-
     List<BusModel> buses = (responseBody as List)
         .map((json) => BusModel(
               plate: json["plate"],
@@ -48,9 +45,10 @@ class BusLocationAPI extends BaseAPI {
               stopName: json["stop_name"],
               timeStamp: DateTime.parse(json["timestamp"]),
               distanceFromUser: json["distance_from_user"],
+              speedInKmPerHr: json["speed_in_km_per_hr"],
+              arrivalTimeInMin: json["arrival_time_in_min"],
             ))
         .toList();
-
     return buses;
   }
 }

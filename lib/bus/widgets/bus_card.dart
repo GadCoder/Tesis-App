@@ -29,7 +29,7 @@ class _BusCardState extends State<BusCard> {
               BoxShadow(
                 color: Colors.black.withOpacity(0.15),
                 spreadRadius: 0,
-                blurRadius: 15,
+                blurRadius: 5,
                 offset: const Offset(0, 2),
               ),
             ]),
@@ -47,14 +47,15 @@ class _BusCardState extends State<BusCard> {
                     Text(
                         "Empresa: ${utf8.decode(widget.companyName.runes.toList())}"),
                     Text(
-                        "Distancia: ${widget.busInfo.distanceFromUser.toStringAsFixed(2)} km.")
+                        "Distancia del usuario: ${widget.busInfo.distanceFromUser.toStringAsFixed(1)} km.")
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("Ruta: ${widget.routeName}"),
-                    const Text("Tiempo de llegada: ${15} min."),
+                    Text(
+                        "Tiempo de llegada: ${widget.busInfo.arrivalTimeInMin.round()} min."),
                   ],
                 )
               ],

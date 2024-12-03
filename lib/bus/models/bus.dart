@@ -8,6 +8,8 @@ class BusModel {
   String? stopName;
   DateTime timeStamp;
   double distanceFromUser;
+  double speedInKmPerHr;
+  double arrivalTimeInMin;
 
   BusModel({
     required this.plate,
@@ -19,6 +21,8 @@ class BusModel {
     required this.stopName,
     required this.timeStamp,
     required this.distanceFromUser,
+    required this.speedInKmPerHr,
+    required this.arrivalTimeInMin,
   });
 
   factory BusModel.fromJson(Map<String, dynamic> json) {
@@ -32,6 +36,8 @@ class BusModel {
       stopName: json["stop_name"],
       timeStamp: DateTime.parse(json["time_stamp"]),
       distanceFromUser: json["distance_from_user"],
+      speedInKmPerHr: json["speed_in_km_per_hr"],
+      arrivalTimeInMin: json["arrival_time_in_min"],
     );
   }
 }
